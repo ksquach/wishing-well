@@ -140,6 +140,33 @@
       color: var(--success);
     }
 
+    .bank-transfer {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .bank-transfer h2 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+      font-weight: 400;
+    }
+
+    .bank-details {
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .bank-details strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
     .note {
       margin: 22px auto 0;
       max-width: 420px;
@@ -169,7 +196,7 @@
 
     <p class="message" id="message"></p>
 
-    <section class="pay-box" aria-label="PayID details">
+    <section class="pay-box" aria-label="Payment details">
       <span class="label" id="payIdLabel"></span>
       <span class="payid" id="payId"></span>
 
@@ -177,6 +204,16 @@
 
       <button id="copyButton" type="button">Copy PayID</button>
       <p class="status" id="copyStatus" aria-live="polite"></p>
+
+      <div class="bank-transfer">
+        <h2>Prefer a standard bank transfer?</h2>
+
+        <div class="bank-details">
+          <div>BSB: <strong id="bsb"></strong></div>
+          <div>Account: <strong id="accountNumber"></strong></div>
+          <div>Account name: <strong id="accountName"></strong></div>
+        </div>
+      </div>
     </section>
 
     <p class="note" id="note"></p>
@@ -189,19 +226,24 @@
     ============================================================
     */
     const CONFIG = {
-      coupleNames: "Sharlea & Kieren's",
+      coupleNames: "Kieren & Partner",
       eyebrow: "Wedding Wishing Well",
 
       message:
         "Your presence at our wedding is more than enough.\n\n" +
         "However, if you would like to contribute towards our future together, " +
-        "you can use the our details below.",
+        "you can use the PayID below.",
 
-      payId: "kierenandsharlea@gmail.com",
+      payId: "yourpayid@example.com",
       payIdType: "Email",
 
       // This should match the name guests will see in their banking app.
-      recipientName: "Kieren and Sharlea",
+      recipientName: "Kieren Quach",
+
+      // Fallback bank transfer details
+      bsb: "123-456",
+      accountNumber: "12345678",
+      accountName: "Kieren Quach",
 
       note:
         "Please check that the recipient name shown in your banking app matches the name above before confirming your payment."
@@ -220,6 +262,9 @@
     document.getElementById("payIdLabel").textContent = `PayID — ${CONFIG.payIdType}`;
     document.getElementById("recipientLine").textContent =
       `Recipient name: ${CONFIG.recipientName}`;
+    document.getElementById("bsb").textContent = CONFIG.bsb;
+    document.getElementById("accountNumber").textContent = CONFIG.accountNumber;
+    document.getElementById("accountName").textContent = CONFIG.accountName;
     document.getElementById("note").textContent = CONFIG.note;
 
     const copyButton = document.getElementById("copyButton");
