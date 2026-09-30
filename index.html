@@ -4,9 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f7f3ee" />
+
   <title>Wedding Wishing Well</title>
 
   <style>
+
+    /* ==========================================================
+       COLOURS
+       ========================================================== */
+
     :root {
       --bg: #f7f3ee;
       --card: #fffdf9;
@@ -18,6 +24,11 @@
       --success: #426b4a;
     }
 
+
+    /* ==========================================================
+       GENERAL PAGE
+       ========================================================== */
+
     * {
       box-sizing: border-box;
     }
@@ -25,38 +36,77 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       display: grid;
       place-items: center;
+
       padding: 24px;
+
       background:
-        radial-gradient(circle at top, rgba(255,255,255,.85), transparent 42%),
+        radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.85),
+          transparent 42%
+        ),
         var(--bg);
+
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
     }
+
+
+    /* ==========================================================
+       MAIN CARD
+       ========================================================== */
 
     .card {
       width: min(100%, 520px);
+
       background: var(--card);
+
       border: 1px solid var(--line);
       border-radius: 22px;
+
       padding: 44px 30px 34px;
+
       text-align: center;
-      box-shadow: 0 16px 45px rgba(45, 38, 31, 0.08);
+
+      box-shadow:
+        0 16px 45px
+        rgba(45, 38, 31, 0.08);
     }
+
+
+    /* ==========================================================
+       HEADINGS
+       ========================================================== */
 
     .eyebrow {
       margin: 0 0 10px;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 12px;
-      letter-spacing: .22em;
+
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+
       color: var(--muted);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(34px, 9vw, 52px);
+
+      font-size:
+        clamp(34px, 9vw, 52px);
+
       font-weight: 400;
       line-height: 1.05;
     }
@@ -64,247 +114,880 @@
     .divider {
       width: 54px;
       height: 1px;
+
       margin: 24px auto;
+
       background: var(--line);
     }
 
+
+    /* ==========================================================
+       WISHING WELL MESSAGE
+       ========================================================== */
+
     .message {
       margin: 0 auto 28px;
+
       max-width: 410px;
+
       font-size: 17px;
       line-height: 1.65;
+
       color: var(--muted);
+
       white-space: pre-line;
     }
 
+
+    /* ==========================================================
+       PAYMENT BOX
+       ========================================================== */
+
     .pay-box {
       padding: 22px 18px;
+
       border: 1px solid var(--line);
       border-radius: 16px;
-      background: rgba(255,255,255,.55);
+
+      background:
+        rgba(255, 255, 255, 0.55);
     }
 
     .label {
       display: block;
+
       margin-bottom: 7px;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .16em;
+
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+
       color: var(--muted);
     }
 
     .payid {
       display: block;
+
       overflow-wrap: anywhere;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(20px, 5vw, 26px);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        clamp(20px, 5vw, 26px);
+
       font-weight: 700;
       line-height: 1.25;
     }
 
     .recipient {
       margin: 12px 0 0;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 14px;
       line-height: 1.5;
+
       color: var(--muted);
     }
 
-    button {
+
+    /* ==========================================================
+       MAIN PAYID COPY BUTTON
+       ========================================================== */
+
+    .copy-main {
       width: 100%;
+
       margin-top: 18px;
+
       border: 0;
       border-radius: 12px;
+
       padding: 15px 18px;
+
       background: var(--button);
       color: var(--button-text);
-      font: 700 15px Arial, Helvetica, sans-serif;
+
+      font:
+        700 15px
+        Arial,
+        Helvetica,
+        sans-serif;
+
       cursor: pointer;
-      transition: transform .15s ease, opacity .15s ease;
+
+      transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
     }
 
-    button:hover {
-      opacity: .92;
+    .copy-main:hover {
+      opacity: 0.92;
     }
 
-    button:active {
-      transform: scale(.99);
+    .copy-main:active {
+      transform: scale(0.99);
     }
 
     .status {
       min-height: 22px;
+
       margin: 10px 0 0;
-      font: 13px Arial, Helvetica, sans-serif;
+
+      font:
+        13px
+        Arial,
+        Helvetica,
+        sans-serif;
+
       color: var(--success);
     }
+
+
+    /* ==========================================================
+       STANDARD BANK TRANSFER SECTION
+       ========================================================== */
 
     .bank-transfer {
       margin-top: 22px;
       padding-top: 22px;
-      border-top: 1px solid var(--line);
-      font-family: Arial, Helvetica, sans-serif;
+
+      border-top:
+        1px solid var(--line);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
     }
 
     .bank-transfer h2 {
-      margin: 0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
+      margin: 0 0 18px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 19px;
       font-weight: 400;
     }
 
     .bank-details {
-      margin: 0;
       display: grid;
-      gap: 8px;
+      gap: 10px;
+    }
+
+
+    /* ==========================================================
+       INDIVIDUAL BANK DETAIL ROWS
+       ========================================================== */
+
+    .bank-row {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 16px;
+
+      padding: 9px 0;
+
+      text-align: left;
+    }
+
+    .bank-info {
+      min-width: 0;
+
       font-size: 14px;
+      line-height: 1.45;
+
       color: var(--muted);
     }
 
-    .bank-details strong {
+    .bank-info strong {
       color: var(--text);
       font-weight: 700;
+
+      overflow-wrap: anywhere;
     }
+
+
+    /* ==========================================================
+       SMALL COPY BUTTONS
+       ========================================================== */
+
+    .copy-small {
+      flex-shrink: 0;
+
+      width: auto;
+
+      margin: 0;
+
+      padding: 7px 12px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 8px;
+
+      background: transparent;
+      color: var(--text);
+
+      font:
+        600 12px
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      cursor: pointer;
+
+      white-space: nowrap;
+
+      transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .copy-small:hover {
+      background:
+        rgba(46, 42, 38, 0.06);
+    }
+
+    .copy-small:active {
+      transform: scale(0.97);
+    }
+
+
+    /* ==========================================================
+       SECURITY NOTE
+       ========================================================== */
 
     .note {
       margin: 22px auto 0;
+
       max-width: 420px;
-      font: 13px/1.55 Arial, Helvetica, sans-serif;
+
+      font:
+        13px / 1.55
+        Arial,
+        Helvetica,
+        sans-serif;
+
       color: var(--muted);
     }
 
+
+    /* ==========================================================
+       MOBILE
+       ========================================================== */
+
     @media (max-width: 480px) {
+
       body {
         padding: 16px;
       }
 
       .card {
-        padding: 36px 22px 28px;
+        padding:
+          36px 22px 28px;
+
         border-radius: 18px;
       }
+
+      .bank-row {
+        gap: 10px;
+      }
+
+      .copy-small {
+        padding:
+          7px 10px;
+      }
     }
+
   </style>
 </head>
 
+
 <body>
+
   <main class="card">
-    <p class="eyebrow" id="eyebrow"></p>
-    <h1 id="coupleNames"></h1>
+
+    <!-- WEDDING NAMES -->
+
+    <p
+      class="eyebrow"
+      id="eyebrow">
+    </p>
+
+    <h1
+      id="coupleNames">
+    </h1>
+
 
     <div class="divider"></div>
 
-    <p class="message" id="message"></p>
 
-    <section class="pay-box" aria-label="Payment details">
-      <span class="label" id="payIdLabel"></span>
-      <span class="payid" id="payId"></span>
+    <!-- MESSAGE -->
 
-      <p class="recipient" id="recipientLine"></p>
+    <p
+      class="message"
+      id="message">
+    </p>
 
-      <button id="copyButton" type="button">Copy PayID</button>
-      <p class="status" id="copyStatus" aria-live="polite"></p>
+
+    <!-- PAYMENT DETAILS -->
+
+    <section
+      class="pay-box"
+      aria-label="Payment details">
+
+
+      <!-- PAYID -->
+
+      <span
+        class="label"
+        id="payIdLabel">
+      </span>
+
+      <span
+        class="payid"
+        id="payId">
+      </span>
+
+      <p
+        class="recipient"
+        id="recipientLine">
+      </p>
+
+
+      <!-- COPY PAYID -->
+
+      <button
+        class="copy-main"
+        id="copyPayIdButton"
+        type="button">
+
+        Copy PayID
+
+      </button>
+
+      <p
+        class="status"
+        id="copyStatus"
+        aria-live="polite">
+      </p>
+
+
+      <!-- STANDARD BANK TRANSFER -->
 
       <div class="bank-transfer">
-        <h2>Prefer a standard bank transfer?</h2>
+
+        <h2>
+          Prefer a standard bank transfer?
+        </h2>
+
 
         <div class="bank-details">
-          <div>BSB: <strong id="bsb"></strong></div>
-          <div>Account: <strong id="accountNumber"></strong></div>
-          <div>Account name: <strong id="accountName"></strong></div>
+
+
+          <!-- BSB -->
+
+          <div class="bank-row">
+
+            <div class="bank-info">
+
+              BSB:
+              <strong id="bsb"></strong>
+
+            </div>
+
+            <button
+              class="copy-small"
+              type="button"
+              data-copy-field="bsb">
+
+              Copy
+
+            </button>
+
+          </div>
+
+
+          <!-- ACCOUNT NUMBER -->
+
+          <div class="bank-row">
+
+            <div class="bank-info">
+
+              Account:
+              <strong id="accountNumber"></strong>
+
+            </div>
+
+            <button
+              class="copy-small"
+              type="button"
+              data-copy-field="accountNumber">
+
+              Copy
+
+            </button>
+
+          </div>
+
+
+          <!-- ACCOUNT NAME -->
+
+          <div class="bank-row">
+
+            <div class="bank-info">
+
+              Account name:
+              <strong id="accountName"></strong>
+
+            </div>
+
+            <button
+              class="copy-small"
+              type="button"
+              data-copy-field="accountName">
+
+              Copy
+
+            </button>
+
+          </div>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <p class="note" id="note"></p>
+
+    <!-- SECURITY NOTE -->
+
+    <p
+      class="note"
+      id="note">
+    </p>
+
+
   </main>
 
+
+
   <script>
+
     /*
     ============================================================
-      EDIT ONLY THIS SECTION WHEN YOUR DETAILS ARE FINALISED
+                 EDIT YOUR DETAILS HERE
+    ============================================================
+
+    THIS IS THE ONLY SECTION YOU SHOULD NORMALLY NEED TO CHANGE.
+
+    Keep all text inside the quotation marks.
+
     ============================================================
     */
+
     const CONFIG = {
-      coupleNames: "Sharlea & Kieren",
-      eyebrow: "Wedding Wishing Well",
+
+
+      /* YOUR NAMES */
+
+      coupleNames:
+        "Sharlea & Kieren",
+
+
+      /* SMALL HEADING ABOVE YOUR NAMES */
+
+      eyebrow:
+        "Wedding Wishing Well",
+
+
+      /* MAIN MESSAGE */
 
       message:
+
         "Your presence at our wedding is more than enough.\n\n" +
+
         "However, if you would like to contribute towards our future together, " +
+
         "you can use the PayID below.",
 
-      payId: "kierenandsharlea@gmail.com",
-      payIdType: "Email",
 
-      // This should match the name guests will see in their banking app.
-      recipientName: "Kieren Quach",
+      /* PAYID */
 
-      // Fallback bank transfer details
-      bsb: "182-182",
-      accountNumber: "013038906",
-      accountName: "Kieren The Khang Quach and Sharlea Jade Hoad",
+      payId:
+        "kierenandsharlea@gmail.com",
+
+
+      /* PAYID TYPE */
+
+      payIdType:
+        "Email",
+
+
+      /*
+      The name guests should see when
+      entering your PayID in their banking app.
+      */
+
+      recipientName:
+        "Kieren The Khang and Sharlea Jade Hoad",
+
+
+      /* STANDARD BANK TRANSFER DETAILS */
+
+      bsb:
+        "182-182",
+
+      accountNumber:
+        "013038906",
+
+      accountName:
+        "Kieren The Khang and Sharlea Jade Hoad",
+
+
+      /* SECURITY MESSAGE */
 
       note:
-        "Please check that the recipient name shown in your banking app matches the name above before confirming your payment."
+
+        "Please check that the recipient name shown in your banking app " +
+
+        "matches the name above before confirming your payment."
+
     };
+
+
     /*
     ============================================================
-      NO NEED TO EDIT BELOW THIS LINE
+                 DO NOT EDIT BELOW THIS LINE
     ============================================================
     */
 
-    document.title = `${CONFIG.coupleNames} — Wishing Well`;
-    document.getElementById("coupleNames").textContent = CONFIG.coupleNames;
-    document.getElementById("eyebrow").textContent = CONFIG.eyebrow;
-    document.getElementById("message").textContent = CONFIG.message;
-    document.getElementById("payId").textContent = CONFIG.payId;
-    document.getElementById("payIdLabel").textContent = `PayID — ${CONFIG.payIdType}`;
-    document.getElementById("recipientLine").textContent =
+
+    /* ----------------------------------------------------------
+       LOAD PAGE CONTENT
+       ---------------------------------------------------------- */
+
+    document.title =
+      `${CONFIG.coupleNames} — Wishing Well`;
+
+
+    document
+      .getElementById("coupleNames")
+      .textContent =
+      CONFIG.coupleNames;
+
+
+    document
+      .getElementById("eyebrow")
+      .textContent =
+      CONFIG.eyebrow;
+
+
+    document
+      .getElementById("message")
+      .textContent =
+      CONFIG.message;
+
+
+    document
+      .getElementById("payId")
+      .textContent =
+      CONFIG.payId;
+
+
+    document
+      .getElementById("payIdLabel")
+      .textContent =
+      `PayID — ${CONFIG.payIdType}`;
+
+
+    document
+      .getElementById("recipientLine")
+      .textContent =
       `Recipient name: ${CONFIG.recipientName}`;
-    document.getElementById("bsb").textContent = CONFIG.bsb;
-    document.getElementById("accountNumber").textContent = CONFIG.accountNumber;
-    document.getElementById("accountName").textContent = CONFIG.accountName;
-    document.getElementById("note").textContent = CONFIG.note;
 
-    const copyButton = document.getElementById("copyButton");
-    const copyStatus = document.getElementById("copyStatus");
 
-    async function copyPayId() {
-      copyStatus.textContent = "";
+    document
+      .getElementById("bsb")
+      .textContent =
+      CONFIG.bsb;
 
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(CONFIG.payId);
-        } else {
-          const textarea = document.createElement("textarea");
-          textarea.value = CONFIG.payId;
-          textarea.setAttribute("readonly", "");
-          textarea.style.position = "fixed";
-          textarea.style.opacity = "0";
-          document.body.appendChild(textarea);
-          textarea.select();
 
-          const successful = document.execCommand("copy");
-          document.body.removeChild(textarea);
+    document
+      .getElementById("accountNumber")
+      .textContent =
+      CONFIG.accountNumber;
 
-          if (!successful) throw new Error("Copy failed");
-        }
 
-        copyButton.textContent = "Copied ✓";
-        copyStatus.textContent = "PayID copied to your clipboard.";
+    document
+      .getElementById("accountName")
+      .textContent =
+      CONFIG.accountName;
 
-        setTimeout(() => {
-          copyButton.textContent = "Copy PayID";
-          copyStatus.textContent = "";
-        }, 2500);
-      } catch (error) {
-        copyStatus.textContent =
-          "Couldn't copy automatically. Press and hold the PayID above to copy it.";
+
+    document
+      .getElementById("note")
+      .textContent =
+      CONFIG.note;
+
+
+
+    /* ----------------------------------------------------------
+       UNIVERSAL COPY FUNCTION
+
+       This works for PayID, BSB,
+       account number and account name.
+       ---------------------------------------------------------- */
+
+    async function copyText(value) {
+
+      if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
+
+        await navigator.clipboard.writeText(value);
+
+        return;
+
       }
+
+
+      /*
+      Fallback for older browsers.
+      */
+
+      const textarea =
+        document.createElement("textarea");
+
+
+      textarea.value =
+        value;
+
+
+      textarea.setAttribute(
+        "readonly",
+        ""
+      );
+
+
+      textarea.style.position =
+        "fixed";
+
+      textarea.style.opacity =
+        "0";
+
+
+      document.body.appendChild(
+        textarea
+      );
+
+
+      textarea.select();
+
+
+      const successful =
+        document.execCommand("copy");
+
+
+      document.body.removeChild(
+        textarea
+      );
+
+
+      if (!successful) {
+
+        throw new Error(
+          "Copy failed"
+        );
+
+      }
+
     }
 
-    copyButton.addEventListener("click", copyPayId);
+
+
+    /* ----------------------------------------------------------
+       COPY PAYID BUTTON
+       ---------------------------------------------------------- */
+
+    const copyPayIdButton =
+      document.getElementById(
+        "copyPayIdButton"
+      );
+
+
+    const copyStatus =
+      document.getElementById(
+        "copyStatus"
+      );
+
+
+    copyPayIdButton.addEventListener(
+      "click",
+
+      async () => {
+
+        copyStatus.textContent =
+          "";
+
+
+        try {
+
+          await copyText(
+            CONFIG.payId
+          );
+
+
+          copyPayIdButton.textContent =
+            "Copied ✓";
+
+
+          copyStatus.textContent =
+            "PayID copied to your clipboard.";
+
+
+          setTimeout(
+            () => {
+
+              copyPayIdButton.textContent =
+                "Copy PayID";
+
+
+              copyStatus.textContent =
+                "";
+
+            },
+
+            2500
+          );
+
+
+        } catch (error) {
+
+          copyStatus.textContent =
+
+            "Couldn't copy automatically. " +
+
+            "Press and hold the PayID above to copy it.";
+
+        }
+
+      }
+    );
+
+
+
+    /* ----------------------------------------------------------
+       COPY BSB / ACCOUNT / ACCOUNT NAME
+       ---------------------------------------------------------- */
+
+    document
+      .querySelectorAll(
+        ".copy-small"
+      )
+      .forEach(
+
+        button => {
+
+          button.addEventListener(
+            "click",
+
+            async () => {
+
+
+              /*
+              Reads the field name from:
+
+              data-copy-field="bsb"
+
+              etc.
+              */
+
+              const field =
+                button.dataset.copyField;
+
+
+              const value =
+                CONFIG[field];
+
+
+              const originalText =
+                "Copy";
+
+
+              try {
+
+                await copyText(
+                  value
+                );
+
+
+                button.textContent =
+                  "Copied ✓";
+
+
+                setTimeout(
+                  () => {
+
+                    button.textContent =
+                      originalText;
+
+                  },
+
+                  2000
+                );
+
+
+              } catch (error) {
+
+
+                button.textContent =
+                  "Copy failed";
+
+
+                setTimeout(
+                  () => {
+
+                    button.textContent =
+                      originalText;
+
+                  },
+
+                  2000
+                );
+
+              }
+
+            }
+          );
+
+        }
+
+      );
+
+
   </script>
+
 </body>
 </html>
